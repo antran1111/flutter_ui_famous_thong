@@ -5,6 +5,8 @@ import 'dart:async';
 
 //design list of useful headers and description box
 
+// todo : create data in separate file, load data using listview builder
+
 
 class ListScreen extends StatelessWidget {
   @override
