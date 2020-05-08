@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_ui_famous_thong/screen/routes.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'dart:async';
 
@@ -15,13 +16,16 @@ class ListScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text('Instagram Famous Guide App'),
       ),
-      body: Column(
-        children: <Widget>[
-          DetailsScrollView(),
-
-          ],
-
-      ),
+      body: DetailsScrollView(),
+//
+//
+//      Column(
+//        children: <Widget>[
+//          DetailsScrollView(),
+//
+//          ],
+//
+//      ),
     );
   }
 }
@@ -55,6 +59,14 @@ class DetailsScrollView extends StatelessWidget {
           },
           title: 'Boobs = instagram famous',
         ),
+        FamousBox(
+          openLink: () {
+            launch('https://instagram.com',
+              enableJavaScript: true,);
+
+          },
+          title: 'Instagram page with javascript',
+        ),
 
         FamousBox(
           openLink: () {
@@ -62,12 +74,27 @@ class DetailsScrollView extends StatelessWidget {
                 enableJavaScript: true,);
 
           },
-          title: 'Instagram Famous #1 tip',
+          title: 'Stackoverflow Famous #1 tip',
         ),
-        Container(
-          padding: const EdgeInsets.all(8),
-          child: const Text('Heed not the rabble'),
-          color: Colors.teal[200],
+        FamousBox(
+          openLink: () {
+            launch('https://facebook.com',
+              enableJavaScript: true,);
+
+          },
+          title: 'Facebook Famous #1 tip',
+        ),
+        FamousBox(
+          openLink: () {
+            launch('https://myspace.com',
+              enableJavaScript: true,);
+
+          },
+          title: 'Myspace Famous #1 tip',
+        ),
+        FamousBox(
+         title: 'Go to the Detail Screen!',
+          openLink: () => Navigator.pushNamed(context, detailScreenRoute),
         ),
         Container(
           padding: const EdgeInsets.all(8),
@@ -97,9 +124,9 @@ class DetailsScrollView extends StatelessWidget {
 class FamousBox extends StatelessWidget {
   final Function openLink;
   final title;
+  final image;
 
-
-  FamousBox({this.openLink, this.title}); //put url launcher link here
+  FamousBox({this.openLink, this.title, this.image}); //put url launcher link here
 
 
 
@@ -108,11 +135,21 @@ class FamousBox extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: openLink,
-      child: Container(
-        padding: const EdgeInsets.all(8),
-        child: Text("$title /nHe'd have you all unravel at the"),
-        color: Colors.teal[100],
-      ),
+      child: Column (
+        children: <Widget>[
+          Container(
+            padding: const EdgeInsets.all(5),
+            child: Text("$title /n Become Famous!"),
+            color: Colors.teal[100],
+          ),
+          //replace asset image link with $image later
+          Image.asset('assets/instagramfamous1.png',
+          fit: BoxFit.fill,),
+        ],
+      )
+
+
+
     );
   }
 }

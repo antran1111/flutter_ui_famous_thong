@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_ui_famous_thong/screen/DetailScreen.dart';
 import 'package:flutter_ui_famous_thong/screen/ListScreen.dart';
 import 'package:flutter_ui_famous_thong/screen/routes.dart';
 import 'screen/homepage.dart';
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
       routes: {
         '/' : (context) => HomePage(),
         listScreenRoute : (context) => ListScreen(),
-        detailScreenRoute: (context) => ListScreen(),
+        detailScreenRoute: (context) => DetailScreen(),
       },
     );
   }

@@ -17,7 +17,7 @@ class HomePage extends StatelessWidget {
               color: Colors.blueGrey,
               child: FlatButton(
                   onPressed: (){
-                    Navigator.pushNamed(context, detailScreenRoute);
+                    Navigator.pushNamed(context, listScreenRoute);
 
                   },
                   child: Text('Enter!'),
