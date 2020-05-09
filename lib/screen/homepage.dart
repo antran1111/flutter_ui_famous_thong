@@ -11,17 +11,33 @@ class HomePage extends StatelessWidget {
         title: Text('Learn How to become INSTAGRAM famous\\'),
       ),
       body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
-            Text('Instagram Famous!'),
-            Container(
-              color: Colors.blueGrey,
-              child: FlatButton(
+            Text('Instagram Famous!',textAlign: TextAlign.center,),
+            Expanded(
+              child: Container(
+                color: Colors.blueGrey,
+                child: FlatButton(
+                    onPressed: (){
+                      Navigator.pushNamed(context, listScreenRoute);
+
+                    },
+                    child: Text('Enter!'),
+              ),),
+            ),
+
+            Expanded(
+              child: Container(
+                color: Colors.blueGrey[300],
+                child: FlatButton(
                   onPressed: (){
-                    Navigator.pushNamed(context, listScreenRoute);
+                    Navigator.pushNamed(context, beeUIScreen);
 
                   },
-                  child: Text('Enter!'),
-            ),),
+                  child: Text('View Bee Sample!'),
+                ),),
+            ),
 
           ],
 
