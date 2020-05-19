@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_ui_famous_thong/screen/consts.dart';
 import 'package:flutter_ui_famous_thong/screen/routes.dart';
+import 'package:flutter_ui_famous_thong/screen/ui_samples/onboarding_screen.dart';
 
 
 
@@ -14,7 +16,26 @@ class HomePage extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
-            Text('Instagram Famous!',textAlign: TextAlign.center,),
+            Container(
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                    begin: FractionalOffset.bottomRight,
+                    end: FractionalOffset.topLeft,
+                    colors: [
+                      Colors.red,
+                      Colors.red[300],
+                    ]
+
+                ),
+                borderRadius: BorderRadius.circular(50.0),
+              ),
+              height: 100,
+              child:  Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Text('Instagram Famous!', style: kTextStyle1,textAlign: TextAlign.center,),
+              ),
+
+            ),
             Expanded(
               child: Container(
                 color: Colors.blueGrey,
@@ -29,13 +50,45 @@ class HomePage extends StatelessWidget {
 
             Expanded(
               child: Container(
-                color: Colors.blueGrey[300],
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                      begin: FractionalOffset.bottomRight,
+                      end: FractionalOffset.topLeft,
+                      colors: [
+                        Colors.red,
+                        Colors.yellow[300],
+                      ]
+
+                  ),
+                ),
                 child: FlatButton(
                   onPressed: (){
                     Navigator.pushNamed(context, beeUIScreen);
 
                   },
                   child: Text('View Bee Sample!'),
+                ),),
+            ),
+            Expanded(
+              child: Container(
+                height: 100,
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                      begin: FractionalOffset.bottomRight,
+                      end: FractionalOffset.topLeft,
+                      colors: [
+                        Colors.black,
+                        Colors.yellow[300],
+                      ]
+
+                  ),
+                ),
+                child: FlatButton(
+                  onPressed: (){
+                    Navigator.pushNamed(context, onboardingScreen);
+
+                  },
+                  child: Text('View Onboarding Sample!'),
                 ),),
             ),
 

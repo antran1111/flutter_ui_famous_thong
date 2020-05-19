@@ -43,8 +43,16 @@ class QuickBeeBody extends StatelessWidget {
                 width: 60.0,
                 margin: EdgeInsets.only(top: 70),
                 decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    begin: FractionalOffset.bottomRight,
+                    end: FractionalOffset.topLeft,
+                    colors: [
+                      Colors.red,
+                      Colors.red[300],
+                    ]
+
+                  ),
                   borderRadius: BorderRadius.circular(50.0),
-                  color: Colors.red,
                 ),
                 child: FaIcon(FontAwesomeIcons.twitch, color: Colors.white,),
               ),

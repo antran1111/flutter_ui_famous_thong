@@ -3,11 +3,9 @@ import 'package:flutter_ui_famous_thong/screen/routes.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'dart:async';
 
-
 //design list of useful headers and description box
 
 // todo : create data in separate file, load data using listview builder
-
 
 class ListScreen extends StatelessWidget {
   @override
@@ -30,9 +28,6 @@ class ListScreen extends StatelessWidget {
   }
 }
 
-
-
-
 class DetailsScrollView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -44,56 +39,55 @@ class DetailsScrollView extends StatelessWidget {
       mainAxisSpacing: 10,
       crossAxisCount: 2,
       children: <Widget>[
-
         FamousBox(
-          openLink: ()
-          async{
-           const url = 'https://instagram.com';
-           if(await canLaunch(url)) {
-             await launch(url);
-
-           } else {
-             throw 'Could not launch $url';
-           }
-
+          openLink: () async {
+            const url = 'https://instagram.com';
+            if (await canLaunch(url)) {
+              await launch(url);
+            } else {
+              throw 'Could not launch $url';
+            }
           },
           title: 'Boobs = instagram famous',
         ),
         FamousBox(
           openLink: () {
-            launch('https://instagram.com',
-              enableJavaScript: true,);
-
+            launch(
+              'https://instagram.com',
+              enableJavaScript: true,
+            );
           },
           title: 'Instagram page with javascript',
         ),
-
         FamousBox(
           openLink: () {
-            launch('https://stackoverflow.com',
-                enableJavaScript: true,);
-
+            launch(
+              'https://stackoverflow.com',
+              enableJavaScript: true,
+            );
           },
           title: 'Stackoverflow Famous #1 tip',
         ),
         FamousBox(
           openLink: () {
-            launch('https://facebook.com',
-              enableJavaScript: true,);
-
+            launch(
+              'https://facebook.com',
+              enableJavaScript: true,
+            );
           },
           title: 'Facebook Famous #1 tip',
         ),
         FamousBox(
           openLink: () {
-            launch('https://myspace.com',
-              enableJavaScript: true,);
-
+            launch(
+              'https://myspace.com',
+              enableJavaScript: true,
+            );
           },
           title: 'Myspace Famous #1 tip',
         ),
         FamousBox(
-         title: 'Go to the Detail Screen!',
+          title: 'Go to the Detail Screen!',
           openLink: () => Navigator.pushNamed(context, detailScreenRoute),
         ),
         Container(
@@ -116,6 +110,10 @@ class DetailsScrollView extends StatelessWidget {
           child: const Text('Revolution, they...'),
           color: Colors.teal[600],
         ),
+        FamousBox(
+          title: 'Go to Detail Screen',
+          openLink: () => Navigator.pushNamed(context, detailScreenRoute),
+        )
       ],
     );
   }
@@ -126,30 +124,26 @@ class FamousBox extends StatelessWidget {
   final title;
   final image;
 
-  FamousBox({this.openLink, this.title, this.image}); //put url launcher link here
-
-
-
+  FamousBox(
+      {this.openLink, this.title, this.image}); //put url launcher link here
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: openLink,
-      child: Column (
-        children: <Widget>[
-          Container(
-            padding: const EdgeInsets.all(5),
-            child: Text("$title /n Become Famous!"),
-            color: Colors.teal[100],
-          ),
-          //replace asset image link with $image later
-          Image.asset('assets/instagramfamous1.png',
-          fit: BoxFit.fill,),
-        ],
-      )
-
-
-
-    );
+        onTap: openLink,
+        child: Column(
+          children: <Widget>[
+            Container(
+              padding: const EdgeInsets.all(5),
+              child: Text("$title /n Become Famous!"),
+              color: Colors.teal[100],
+            ),
+            //replace asset image link with $image later
+            Image.asset(
+              'assets/instagramfamous1.png',
+              fit: BoxFit.fill,
+            ),
+          ],
+        ));
   }
 }
